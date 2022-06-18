@@ -7,6 +7,8 @@
  */
 
 plugins {
+    // Apply the org.jetbrains.kotlin.jvm Plugin to add support for Kotlin.
+    id("org.jetbrains.kotlin.jvm") version "1.5.31"
     // Apply the java-library plugin for API and implementation separation.
     `java-library`
     `maven-publish`
@@ -80,14 +82,23 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+
+    // Align versions of all Kotlin components
+    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+
+    testImplementation("org.assertj:assertj-core:3.23.1")
+    // Use the Kotlin test library.
+    testImplementation("org.jetbrains.kotlin:kotlin-test")
+
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.
     api("org.apache.commons:commons-math3:3.6.1")
 
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation("com.google.guava:guava:30.1.1-jre")
+
+    // To find and remove emoji from text
+    implementation("com.vdurmont:emoji-java:5.1.1")
 }
 
 tasks.named<Test>("test") {
