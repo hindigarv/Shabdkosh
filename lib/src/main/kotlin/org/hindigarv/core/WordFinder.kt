@@ -50,15 +50,9 @@ class WordFinder() {
     }
 
 
-
-    private fun tokenize(text: String): List<String> {
-        return EmojiParser.removeAllEmojis(text)
-            .split(Regex("[\\s,। .?!#_*%()”“'‘’:;\\-\"\\[\\]{}]"))
-            .filter { it.isNotBlank() }
-    }
-
     fun find(text: String): List<Word> {
-        return tokenize(text.removeNukta())
+        return text.removeNukta()
+            .tokenize()
             .mapNotNull(dictionary::get)
             .distinct()
     }

@@ -1,5 +1,13 @@
 package org.hindigarv.core
 
+import com.vdurmont.emoji.EmojiParser
+
+fun String.tokenize(): List<String> {
+    return EmojiParser.removeAllEmojis(this)
+        .split(Regex("[\\s,। .?!#_*%()”“'‘’:;\\-\"\\[\\]{}]"))
+        .filter { it.isNotBlank() }
+}
+
 fun String.removeNukta(): String {
     return this.replace('क़', 'क')
         .replace('ख़', 'ख')
