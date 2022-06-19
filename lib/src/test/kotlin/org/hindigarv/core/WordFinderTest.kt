@@ -115,4 +115,19 @@ internal class WordFinderTest {
         assertThat(words[1].shabd).isEqualTo("आजाद")
         assertThat(words[2].shabd).isEqualTo("अगर")
     }
+
+    @Test
+    internal fun shouldFindByAnyOfItsRoops() {
+        var text = "aaa अन्गूर bbb"
+        var words = wordFinder.find(text)
+        assertThat(words.map { it.shabd }).isEqualTo(listOf("अंगूर"))
+
+        text = "aaa अंगुर bbb"
+        words = wordFinder.find(text)
+        assertThat(words.map { it.shabd }).isEqualTo(listOf("अंगूर"))
+
+        text = "aaa अन्गुर bbb"
+        words = wordFinder.find(text)
+        assertThat(words.map { it.shabd }).isEqualTo(listOf("अंगूर"))
+    }
 }

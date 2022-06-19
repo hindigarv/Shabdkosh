@@ -16,7 +16,7 @@ plugins {
 }
 
 group = "io.github.hindigarv"
-version = "0.1.0"
+version = "0.1.1"
 
 java {
     withJavadocJar()
@@ -28,7 +28,7 @@ publishing {
         create<MavenPublication>("mavenJava") {
             groupId = "io.github.hindigarv"
             artifactId = "shabdkosh"
-            version = "0.1.0"
+            version = "0.1.1"
             from(components["java"])
             pom {
                 name.set("shabdkosh")
