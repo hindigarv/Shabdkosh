@@ -48,12 +48,17 @@ internal class WordFinderTest {
         val text = """@narendramodi
  जी अगर सुभाष चंद्रबोस जी, ने अगर अंग्रेजो के सामने हथियार डाल दिए होते तो हम आजाद नहीं होते लेकिन आपने अर्बन नक्सल के सामने सरेंडर कर दिया हैं! आज़ाद . इन जैसे लोगो को अच्छे से सबक सिखाओ नहीं तो देश को आपको माफ़ नहीं करेगा,JNU को सुधारो"""
         val words = wordFinder.find(text)
-        assertEquals(5, words.size)
-        assertEquals("अगर", words[0].shabd)
-        assertEquals("आजाद", words[1].shabd)
-        assertEquals("लेकिन", words[2].shabd)
-        assertEquals("सरेंडर", words[3].shabd)
-        assertEquals("सबक", words[4].shabd)
+        assertThat(words.map { it.shabd }).isEqualTo(
+            listOf(
+                "अगर",
+                "आजाद",
+                "लेकिन",
+                "सरेंडर",
+                "सबक",
+                "माफ",
+            )
+        )
+
     }
 
     @Test

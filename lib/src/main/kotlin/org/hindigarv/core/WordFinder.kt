@@ -31,7 +31,7 @@ class WordFinder() {
         if (parts.size < 3) {
             return Optional.empty()
         }
-        val shabd = parts[0].trim()
+        val shabd = parts[0].trim().removeNukta()
         val mool = parts[1].trim()
         val paryays = parts[2].split()
 
