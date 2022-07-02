@@ -18,6 +18,18 @@ val words: List<Word> = wordFinder.find(text) // TODO improve example
 
 [How to build java library from gradle](https://docs.gradle.org/7.4.2/samples/sample_building_java_libraries.html)
 
+## Local env setup
+
+create a file `./lib/gradle.properties` with following content
+```properties
+# ossrh JIRA creds used at https://issues.sonatype.org/secure/Dashboard.jspa
+ossrh_username=xxx
+ossrh_password=xxx
+signing.keyId=xxx
+signing.password=xxx
+signing.secretKeyRingFile=/Users/xxx/secring.kbx
+```
+
 ### Publish to maven local
 `./gradlew publishToMavenLocal`
 
