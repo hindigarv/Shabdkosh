@@ -21,3 +21,7 @@ val words: List<Word> = wordFinder.find(text) // TODO improve example
 ### Publish to maven local
 `./gradlew publishToMavenLocal`
 
+
+### In maven repo:
+- https://repo1.maven.org/maven2/io/github/hindigarv/shabdkosh/
+- https://mvnrepository.com/artifact/io.github.hindigarv/shabdkosh
