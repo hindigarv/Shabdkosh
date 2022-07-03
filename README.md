@@ -35,6 +35,9 @@ run `./gradlew clean build`
 ### Publish to maven local
 `./gradlew publishToMavenLocal`
 
+### Publish to maven central
+`./gradlew publish`
+
 
 ### In maven repo:
 - https://repo1.maven.org/maven2/io/github/hindigarv/shabdkosh/
