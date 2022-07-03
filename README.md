@@ -27,8 +27,10 @@ ossrh_username=xxx
 ossrh_password=xxx
 signing.keyId=xxx
 signing.password=xxx
-signing.secretKeyRingFile=/Users/xxx/secring.kbx
+signing.secretKeyRingFile=/Users/xxx/secring.gpg
 ```
+
+run `./gradlew clean build`
 
 ### Publish to maven local
 `./gradlew publishToMavenLocal`
