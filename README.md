@@ -39,10 +39,11 @@ run `./gradlew clean build`
     `./gradlew publishToMavenLocal`
 3. Publish to maven central
     `./gradlew publish`
-    3.1. Verify in maven repos:
-        - https://repo1.maven.org/maven2/io/github/hindigarv/shabdkosh/
-        - https://mvnrepository.com/artifact/io.github.hindigarv/shabdkosh
-
+4. Go to https://s01.oss.sonatype.org/#stagingRepositories
+   1. close and release the new version
+   2. Verify in maven repos:
+       - https://repo1.maven.org/maven2/io/github/hindigarv/shabdkosh/
+       - https://mvnrepository.com/artifact/io.github.hindigarv/shabdkosh
 
 ## Versions
 ### 0.1.0
