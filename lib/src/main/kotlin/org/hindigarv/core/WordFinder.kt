@@ -5,7 +5,7 @@ import org.hindigarv.core.model.Word
 import java.net.URL
 import java.util.*
 import java.util.concurrent.TimeUnit
-import kotlin.concurrent.schedule
+import kotlin.concurrent.scheduleAtFixedRate
 
 
 fun String.split(): List<String> {
@@ -24,7 +24,10 @@ class WordFinder(autoRefresh: Boolean = false) {
     init {
         refresh()
         if (autoRefresh) {
-            Timer("refresher", true).schedule(TimeUnit.MINUTES.toMillis(5)) { refresh() }
+            Timer("refresher", true).scheduleAtFixedRate(
+                TimeUnit.MINUTES.toMillis(5),
+                TimeUnit.MINUTES.toMillis(5)
+            ) { refresh() }
         }
     }
 
