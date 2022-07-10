@@ -32,13 +32,24 @@ signing.secretKeyRingFile=/Users/xxx/secring.gpg
 
 run `./gradlew clean build`
 
-### Publish to maven local
-`./gradlew publishToMavenLocal`
+## Release new version
 
-### Publish to maven central
-`./gradlew publish`
+1. change version in `build.gradle.kts`
+2. Publish to maven local and verify
+    `./gradlew publishToMavenLocal`
+3. Publish to maven central
+    `./gradlew publish`
+    3.1. Verify in maven repos:
+        - https://repo1.maven.org/maven2/io/github/hindigarv/shabdkosh/
+        - https://mvnrepository.com/artifact/io.github.hindigarv/shabdkosh
 
 
-### In maven repo:
-- https://repo1.maven.org/maven2/io/github/hindigarv/shabdkosh/
-- https://mvnrepository.com/artifact/io.github.hindigarv/shabdkosh
+## Versions
+### 0.1.0
+ - First version without any feature.
+### 0.1.1
+ - Added WordFinder which loads dictionary on constructor.
+### 0.2.0
+ - Added a feature to auto refresh the dictionary every 5 minutes.
+ - New dependency added: api("io.github.microutils:kotlin-logging-jvm:2.0.11")
+ - Removed dependency: implementation("com.google.guava:guava:30.1.1-jre")

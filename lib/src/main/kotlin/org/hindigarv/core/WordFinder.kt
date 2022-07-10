@@ -1,8 +1,11 @@
 package org.hindigarv.core
 
+import mu.KotlinLogging
 import org.hindigarv.core.model.Word
 import java.net.URL
-import java.util.Optional
+import java.util.*
+import java.util.concurrent.TimeUnit
+import kotlin.concurrent.schedule
 
 
 fun String.split(): List<String> {
@@ -11,18 +14,30 @@ fun String.split(): List<String> {
         .filter { it.isNotBlank() }
 }
 
-class WordFinder() {
+class WordFinder(autoRefresh: Boolean = false) {
 
+    private val logger = KotlinLogging.logger {}
     private var dictionary: Map<String, Word> = emptyMap()
+    private val url =
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vTnYyZxqwSjM3IPG9TchbZcAUDNM_Y4zbZCFjimzQKVjQpNNinNRj4CeWzXaHDNcDEJ_EPOrtBLycRD/pub?gid=0&single=true&output=tsv"
+
     init {
-        val url = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTnYyZxqwSjM3IPG9TchbZcAUDNM_Y4zbZCFjimzQKVjQpNNinNRj4CeWzXaHDNcDEJ_EPOrtBLycRD/pub?gid=0&single=true&output=tsv"
-        val csvContent = URL(url).readText()
-        dictionary = csvContent.split("\r\n")
+        refresh()
+        if (autoRefresh) {
+            Timer("refresher", true).schedule(TimeUnit.MINUTES.toMillis(5)) { refresh() }
+        }
+    }
+
+
+    private fun refresh() {
+        dictionary = URL(url).readText()
+            .split("\r\n")
             .map { fromCSVLine(it) }
             .filter { it.isPresent }
             .map { it.get() }
             .flatMap { word -> word.roops.map { it to word } }
             .toMap()
+        logger.info { "Dictionary refreshed with ${dictionary.size} words" }
     }
 
     private fun fromCSVLine(line: String): Optional<Word> {
