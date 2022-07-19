@@ -47,12 +47,12 @@ run `./gradlew clean build`
 
 ## Versions
 ### 0.1.0
- - First version without any feature.
+- First version without any feature.
 ### 0.1.1
- - Added WordFinder which loads dictionary on constructor.
+- Added WordFinder which loads dictionary on constructor.
 ### 0.2.0
- - Added a feature to auto refresh the dictionary every 5 minutes.
- - New dependency added: api("io.github.microutils:kotlin-logging-jvm:2.0.11")
- - Removed dependency: implementation("com.google.guava:guava:30.1.1-jre")
+- Added a feature to auto refresh the dictionary every 5 minutes.
+- New dependency added: api("io.github.microutils:kotlin-logging-jvm:2.0.11")
+- Removed dependency: implementation("com.google.guava:guava:30.1.1-jre")
 ### nextVersion
- - Handle three dots character `…` to split the word. 
+- Handle three dots character `…` to split the word. 
