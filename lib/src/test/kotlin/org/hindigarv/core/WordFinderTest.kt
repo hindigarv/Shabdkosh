@@ -98,12 +98,22 @@ internal class WordFinderTest {
     }
 
     @Test
-    internal fun shouldHashTaggedWords() {
+    internal fun shouldFindHashTaggedWords() {
         val text = "aaa #लेकिन aaa #आजाद bbb"
         val words = wordFinder.find(text)
         assertThat(words).hasSize(2)
         assertThat(words[0].shabd).isEqualTo("लेकिन")
         assertThat(words[1].shabd).isEqualTo("आजाद")
+    }
+
+    @Test
+    fun shouldHandleThreeDots() {
+        val text = "aaa …लेकिन aaa आजाद… bbb …अंगुर… ccc"
+        val words = wordFinder.find(text)
+        assertThat(words).hasSize(3)
+        assertThat(words[0].shabd).isEqualTo("लेकिन")
+        assertThat(words[1].shabd).isEqualTo("आजाद")
+        assertThat(words[2].shabd).isEqualTo("अंगूर")
     }
 
     @Test
