@@ -10,11 +10,18 @@ implementation("io.github.hindigarv:shabdkosh:0.1.1")
 ### Use WordFinder to find foreign words from a String
 ```kotlin
 val wordFinder = WordFinder()
-val words: List<Word> = wordFinder.find(text) // TODO improve example
+val text = "बाबा बैद्यनाथ की धरती पर आज विकास के इतने सारे काम हो रहे हैं, लेकिन मेरा आपसे एक सवाल भी है…"
+val words = wordFinder.find(text)
+words.forEach { println("${it.shabd} (${it.mool}) -> ${it.paryays.joinToString(", ") }}") }
+// console:
+// बाबा (अरबी) -> पितामह, साधु
+// लेकिन (अरबी) -> परन्तु, किन्तु
+// सवाल (अरबी) -> प्रश्न
 ```
 
+`WordFinder` uses [शब्दकोश](https://docs.google.com/spreadsheets/d/e/2PACX-1vTnYyZxqwSjM3IPG9TchbZcAUDNM_Y4zbZCFjimzQKVjQpNNinNRj4CeWzXaHDNcDEJ_EPOrtBLycRD/pub?gid=0&single=true&output=tsv) file as source.
 
-[शब्दकोश](https://docs.google.com/spreadsheets/d/e/2PACX-1vTnYyZxqwSjM3IPG9TchbZcAUDNM_Y4zbZCFjimzQKVjQpNNinNRj4CeWzXaHDNcDEJ_EPOrtBLycRD/pub?gid=0&single=true&output=tsv) as tsv file
+Use `autoRefresh` option like this `val wordFinder = WordFinder(autoRefresh = true)` to automatically load new words from the शब्दकोश file.
 
 [How to build java library from gradle](https://docs.gradle.org/7.4.2/samples/sample_building_java_libraries.html)
 
