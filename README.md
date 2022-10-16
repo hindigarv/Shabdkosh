@@ -61,5 +61,8 @@ run `./gradlew clean build`
 - Added a feature to auto refresh the dictionary every 5 minutes.
 - New dependency added: api("io.github.microutils:kotlin-logging-jvm:2.0.11")
 - Removed dependency: implementation("com.google.guava:guava:30.1.1-jre")
+### 1.0.0
+- Major: Enable Regex to generate ShabdaRoop list 
+- Minor: Handle three dots character `…` to split the word.
 ### nextVersion
-- Handle three dots character `…` to split the word. 
+- Add details here
