@@ -14,7 +14,7 @@ fun String.split(): List<String> {
         .filter { it.isNotBlank() }
 }
 
-class WordFinder(autoRefresh: Boolean = false) {
+class WordFinder(autoRefresh: Boolean = false, private val regexEnabled: Boolean = false) {
 
     private val logger = KotlinLogging.logger {}
     private var dictionary: Map<String, Word> = emptyMap()
@@ -59,12 +59,18 @@ class WordFinder(autoRefresh: Boolean = false) {
         }
 
         val moolRoop: String = columns.getOrElse(3) { "" }.trim()
-        val roops = columns.getOrElse(4) { "" }
+        var roops = columns.getOrElse(4) { "" }
             .removeNukta()
             .split()
             .plus(shabd) // The shabd itself is one roop of it
             .distinct()
-        val regex = columns.getOrElse(5) { "" }.trim()
+        val regex = columns.getOrElse(5) { "" }.removeNukta().trim()
+        if (regexEnabled && regex.isNotBlank()) {
+            val generatedRoops = RegexWordsGenerator(Regex(regex)).generate()
+            roops = roops.toMutableList()
+            roops.addAll(generatedRoops)
+            roops = roops.distinct()
+        }
         return Optional.of(Word(shabd, mool, paryays, moolRoop, roops, regex))
     }
 

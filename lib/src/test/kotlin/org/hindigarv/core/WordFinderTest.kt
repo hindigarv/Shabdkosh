@@ -26,7 +26,7 @@ internal class WordFinderTest {
             "अगर",
             "आजाद",
             "लेकिन",
-            "सरेंडर",
+            "सरेंडर्",
             "सबक",
             "माफ",
         ))
@@ -41,7 +41,7 @@ internal class WordFinderTest {
             "अगर",
             "आजाद",
             "लेकिन",
-            "सरेंडर",
+            "सरेंडर्",
             "सबक",
             "माफ",
         ))
@@ -56,7 +56,7 @@ internal class WordFinderTest {
                 "अगर",
                 "आजाद",
                 "लेकिन",
-                "सरेंडर",
+                "सरेंडर्",
                 "सबक",
                 "माफ",
         ))
@@ -140,4 +140,12 @@ internal class WordFinderTest {
         words = wordFinder.find(text)
         assertThat(words.map { it.shabd }).isEqualTo(listOf("अंगूर"))
     }
+
+    @Test
+    internal fun shouldGenerateRoopsFromRegexWhenEnabled() {
+        val text = "aaa अकलमन्दि bbb"
+        assertThat(WordFinder().find(text)).hasSize(0)
+        assertThat(WordFinder(regexEnabled = true).find(text)).hasSize(1)
+    }
+
 }
