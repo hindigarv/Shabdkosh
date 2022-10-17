@@ -51,6 +51,8 @@ run `./gradlew clean build`
    2. Verify in maven repos:
        - <https://repo1.maven.org/maven2/io/github/hindigarv/shabdkosh/>
        - <https://mvnrepository.com/artifact/io.github.hindigarv/shabdkosh>
+5. Create a new release on github
+6. Update the readme file example code with new version 
 
 ## Versions
 ### 0.1.0
