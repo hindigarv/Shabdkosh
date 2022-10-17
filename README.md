@@ -4,7 +4,7 @@
 
 ### Install dependency (gradle)
 ```kotlin
-implementation("io.github.hindigarv:shabdkosh:0.1.1")
+implementation("io.github.hindigarv:shabdkosh:1.0.0")
 ```
 
 ### Use WordFinder to find foreign words from a String
