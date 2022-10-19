@@ -55,16 +55,18 @@ run `./gradlew clean build`
 6. Update the readme file example code with new version 
 
 ## Versions
-### 0.1.0
-- First version without any feature.
-### 0.1.1
-- Added WordFinder which loads dictionary on constructor.
+### Next Release
+- To Be Added
+### 1.0.1
+- Minor: Regex allows optional OptionSet. e.g. `x(a)?x` -> `"xx", "xax"`
+### 1.0.0
+- Major: Enable Regex to generate ShabdaRoop list
+- Minor: Handle three dots character `…` to split the word.
 ### 0.2.0
 - Added a feature to auto refresh the dictionary every 5 minutes.
 - New dependency added: api("io.github.microutils:kotlin-logging-jvm:2.0.11")
 - Removed dependency: implementation("com.google.guava:guava:30.1.1-jre")
-### 1.0.0
-- Major: Enable Regex to generate ShabdaRoop list 
-- Minor: Handle three dots character `…` to split the word.
-### nextVersion
-- Add details here
+### 0.1.1
+- Added WordFinder which loads dictionary on constructor.
+### 0.1.0
+- First version without any feature.
