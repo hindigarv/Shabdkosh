@@ -52,6 +52,10 @@ class RegexWordsGenerator(regex: Regex) {
         }
         options.add(currOption)
         index++
+        if (pattern[index] == '?') {
+            options.add("")
+            index++
+        }
         return options
     }
 

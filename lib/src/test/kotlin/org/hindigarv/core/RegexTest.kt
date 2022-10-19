@@ -2,6 +2,7 @@ package org.hindigarv.core
 
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 internal class RegexTest {
@@ -51,6 +52,24 @@ internal class RegexTest {
             "अकलमन्दी",
         )
         assertEquals(roops, RegexWordsGenerator(regex).generate())
+    }
+
+    @Test
+    fun shouldGenerateWordWithoutOptionWhenQuestionMarkIsUsed() {
+        val regex = Regex("^अ(a|b)?ल(्)?\$")
+        val roops = listOf("अल", "अaल", "अbल", "अल्", "अaल्", "अbल्")
+        val generated = RegexWordsGenerator(regex).generate()
+        assertTrue(generated.size == roops.size)
+        assertTrue(generated.containsAll(roops))
+    }
+
+    @Test
+    fun testAmbulance() {
+        val regex = Regex("^ए(म्|ं)ब(्य)?ुले(न्|ं)स(्)?\$")
+        val roops = listOf("एम्ब्युलेन्स्", "एम्ब्युलेन्स", "एम्ब्युलेंस्", "एम्ब्युलेंस", "एम्बुलेन्स्", "एम्बुलेन्स", "एम्बुलेंस्", "एम्बुलेंस", "एंब्युलेन्स्", "एंब्युलेन्स", "एंब्युलेंस्", "एंब्युलेंस", "एंबुलेन्स्", "एंबुलेन्स", "एंबुलेंस्", "एंबुलेंस")
+        val generated = RegexWordsGenerator(regex).generate()
+        assertEquals(roops.size, generated.size)
+        assertTrue(generated.containsAll(roops))
     }
 
 
