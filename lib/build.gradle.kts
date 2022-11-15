@@ -91,6 +91,7 @@ dependencies {
     testImplementation("org.assertj:assertj-core:3.23.1")
     // Use the Kotlin test library.
     testImplementation("org.jetbrains.kotlin:kotlin-test")
+    testImplementation("org.junit.jupiter:junit-jupiter-params")
 
 
     // This dependency is exported to consumers, that is to say found on their compile classpath.

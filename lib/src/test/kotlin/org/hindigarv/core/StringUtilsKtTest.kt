@@ -4,6 +4,8 @@ import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.params.ParameterizedTest
+import org.junit.jupiter.params.provider.ValueSource
 
 internal class StringUtilsKtTest {
 
@@ -191,6 +193,13 @@ https://t.co/UgTnxnuWwp""".tokenize()
     internal fun shouldFindWordWithVisarga() {
         val words = "सबको ही चाहिए लेकिन: लोग बस भूल जाते हैं”".tokenize()
         assertThat(words).contains("लेकिन")
+    }
+
+    @ParameterizedTest
+    @ValueSource(strings = ["a|b", "a~b", "a^b", "a+b", "a&b", "a=b", "a(b", "a)b", "a{b", "a}b", "a<b", "a>b"])
+    internal fun shouldTokenizeStringWithParam(input: String) {
+        val words = input.tokenize()
+        assertThat(words).contains("a", "b")
     }
 
     @Test
