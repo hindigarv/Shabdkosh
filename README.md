@@ -4,7 +4,7 @@
 
 ### Install dependency (gradle)
 ```kotlin
-implementation("io.github.hindigarv:shabdkosh:1.0.1")
+implementation("io.github.hindigarv:shabdkosh:1.0.2")
 ```
 
 ### Use WordFinder to find foreign words from a String
@@ -56,6 +56,8 @@ run `./gradlew clean build`
 
 ## Versions
 ### Next Release
+- To be added
+### 1.0.2
 - Minor: Tokenize text using non-word symbols: `+`, `^`, `<`, `>`, `|`, `&`, `=`, numbers and roman letters
 ### 1.0.1
 - Minor: Regex allows optional OptionSet. e.g. `x(a)?x` -> `"xx", "xax"`
