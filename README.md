@@ -56,7 +56,7 @@ run `./gradlew clean build`
 
 ## Versions
 ### Next Release
-- Minor: Tokenize text using non-word symbols: `+`, `^`, `<`, `>`, `|`, `&`, `=`
+- Minor: Tokenize text using non-word symbols: `+`, `^`, `<`, `>`, `|`, `&`, `=`, numbers and roman letters
 ### 1.0.1
 - Minor: Regex allows optional OptionSet. e.g. `x(a)?x` -> `"xx", "xax"`
 ### 1.0.0
