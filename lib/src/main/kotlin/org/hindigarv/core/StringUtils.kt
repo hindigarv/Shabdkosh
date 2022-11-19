@@ -4,7 +4,7 @@ import com.vdurmont.emoji.EmojiParser
 
 fun String.tokenize(): List<String> {
     return EmojiParser.removeAllEmojis(this)
-        .split(Regex("[\\s\\-\"\\[\\],। .?!#_*%”“'‘’:;|~^&+=(){}<>…]"))
+        .split(Regex("[\\s\\-\"\\[\\],। .?!#_*%”“'‘’:;|~^&+=(){}<>…॰०१२३४५६७८९0123456789a-zA-Z]"))
         .filter { it.isNotBlank() }
 }
 
