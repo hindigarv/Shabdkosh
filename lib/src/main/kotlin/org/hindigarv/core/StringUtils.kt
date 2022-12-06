@@ -2,9 +2,13 @@ package org.hindigarv.core
 
 import com.vdurmont.emoji.EmojiParser
 
+val devanagariChars =
+        "ऀँंःऄअआइईउऊऋऌऍऎएऐऑऒओऔकखगघङचछजझञटठडढणतथदधनऩपफबभमयरऱलळऴवशषसहऺऻ़ऽािीुूृॄॅॆेैॉॊोौ्ॎॏॐ॒॑॓॔ॕॖॗक़ख़ग़ज़ड़ढ़फ़य़ॠॡॢॣॱॲॳॴॵॶॷॸॹॺॻॼॽॾॿ"
+
+
 fun String.tokenize(): List<String> {
     return EmojiParser.removeAllEmojis(this)
-        .split(Regex("[\\s\\-\"\\[\\],। .?!#_*%”“'‘’:;|~^&+=(){}<>…॰०१२३४५६७८९0123456789a-zA-Z]"))
+        .split(Regex("[^${devanagariChars}]"))
         .filter { it.isNotBlank() }
 }
 
