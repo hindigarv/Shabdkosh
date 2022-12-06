@@ -14,7 +14,7 @@ fun String.split(): List<String> {
         .filter { it.isNotBlank() }
 }
 
-class WordFinder(autoRefresh: Boolean = false, private val regexEnabled: Boolean = false) {
+class WordFinder(autoRefresh: Boolean = false, private val regexEnabled: Boolean = true) {
 
     private val logger = KotlinLogging.logger {}
     private var dictionary: Map<String, Word> = emptyMap()

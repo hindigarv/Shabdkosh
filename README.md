@@ -57,6 +57,7 @@ run `./gradlew clean build`
 ## Versions
 ### Next Release
 - Minor: update regex to split using any non devanagari character
+- Minor: Regex is enabled by default
 ### 1.0.2
 - Minor: Tokenize text using non-word symbols: `+`, `^`, `<`, `>`, `|`, `&`, `=`, numbers and roman letters
 ### 1.0.1

@@ -144,8 +144,8 @@ internal class WordFinderTest {
     @Test
     internal fun shouldGenerateRoopsFromRegexWhenEnabled() {
         val text = "aaa अकलमन्दि bbb"
-        assertThat(WordFinder().find(text)).hasSize(0)
-        assertThat(WordFinder(regexEnabled = true).find(text)).hasSize(1)
+        assertThat(WordFinder(regexEnabled = false).find(text)).hasSize(0)
+        assertThat(WordFinder().find(text)).hasSize(1)
     }
 
 }
