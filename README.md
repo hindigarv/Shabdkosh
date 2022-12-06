@@ -4,7 +4,7 @@
 
 ### Install dependency (gradle)
 ```kotlin
-implementation("io.github.hindigarv:shabdkosh:1.0.2")
+implementation("io.github.hindigarv:shabdkosh:1.0.3")
 ```
 
 ### Use WordFinder to find foreign words from a String
@@ -56,6 +56,8 @@ run `./gradlew clean build`
 
 ## Versions
 ### Next Release
+- TBA
+### 1.0.3
 - Minor: update regex to split using any non devanagari character
 - Minor: Regex is enabled by default
 ### 1.0.2

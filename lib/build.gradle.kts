@@ -18,7 +18,7 @@ plugins {
 }
 
 group = "io.github.hindigarv"
-version = "1.0.2"
+version = "1.0.3"
 
 java {
     withJavadocJar()
