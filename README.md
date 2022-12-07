@@ -4,7 +4,7 @@
 
 ### Install dependency (gradle)
 ```kotlin
-implementation("io.github.hindigarv:shabdkosh:1.0.3")
+implementation("io.github.hindigarv:shabdkosh:1.0.4")
 ```
 
 ### Use WordFinder to find foreign words from a String
@@ -56,6 +56,8 @@ run `./gradlew clean build`
 
 ## Versions
 ### Next Release
+- TBA
+### 1.0.4
 - Minor: remove dependency on emoji parser library
 ### 1.0.3
 - Minor: update regex to split using any non devanagari character
