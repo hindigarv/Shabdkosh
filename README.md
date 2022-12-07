@@ -56,7 +56,7 @@ run `./gradlew clean build`
 
 ## Versions
 ### Next Release
-- TBA
+- Minor: remove dependency on emoji parser library
 ### 1.0.3
 - Minor: update regex to split using any non devanagari character
 - Minor: Regex is enabled by default

@@ -98,13 +98,6 @@ dependencies {
     api("org.apache.commons:commons-math3:3.6.1")
     api("io.github.microutils:kotlin-logging-jvm:2.0.11")
 
-    // This dependency is used internally, and not exposed to consumers on their own compile classpath.
-    implementation("com.vdurmont:emoji-java:5.1.1") // To find and remove emoji from text
-    constraints {
-        implementation("org.json:json:20220924") {
-            because("version 20170516 is affected by some vulnerability")
-        }
-    }
     implementation(kotlin("stdlib-jdk8"))
 }
 
